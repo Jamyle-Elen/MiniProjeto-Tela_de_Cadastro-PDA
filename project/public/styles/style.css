@@ -103,8 +103,14 @@ button {
     background-color: #b62b2e;
 }
 
+.imagens {
+    display: flex;
+    justify-content: center;
+}
+
 .imagens .itemImage {
     max-width: 100%;
     margin-top: 20px;
     display: none;
+    margin: 15px;
 }
