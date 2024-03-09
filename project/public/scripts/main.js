@@ -1,26 +1,41 @@
+
+class Item {
+    constructor(name, imagePath) {
+        this.name = name;
+        this.imagePath = imagePath;
+    }
+}
+
 const itemImageMap = {
-    "proto": "images/itens-lol/protocinturao-item.png",
-    "eco": "images/itens-lol/eco-item.webp"
+    "proto": new Item("proto", "images/itens-lol/protocinturao-item.png"),
+    "eco": new Item("eco", "images/itens-lol/eco-item.webp")
 };
 
 const displayItems = new Set();
 
 function mostrarImagem() {
-    const itemName = document.getElementById('item').value.toLowerCase();
+    const itemNameInput = document.getElementById('item').value.trim();
+    const itemName = itemNameInput.toLowerCase();
     const imagePath = itemImageMap[itemName];
-    const imagesContainer = document.querySelector('.imagens');
+    const imagesContainer = document.querySelectorAll('.itemImage');
+
+    console.log('Nome do Item:', itemName);
 
     if (imagePath && !displayItems.has(itemName) && displayItems.size < 6) {
-        const availableSlot = Array.from(displayItems).findIndex(slot => !displayItems.has(`itemImage${slot + 1}`));
-        const imgId = `itemImage${availableSlot + 1}`;
+        const availableSlot = Array.from(imagesContainer).findIndex(img => img.src === '');
+        if (availableSlot !== -1) {
+            const imgId = `itemImage${availableSlot + 1}`;
+            const itemImage = document.getElementById(imgId);
 
-        const itemImage = document.getElementById(imgId);
-        itemImage.src = imagePath;
-        itemImage.alt = `Imagem do item ${availableSlot + 1}`;
-        itemImage.style.display = 'block';
+            itemImage.src = imagePath.imagePath;
+            itemImage.alt = `Imagem do item ${availableSlot + 1}`;
+            itemImage.style.display = 'block';
 
-        displayItems.add(itemName);
+            displayItems.add(itemName);
+        } else {
+            console.error('Não há slots disponíveis para exibir a imagem.');
+        }
     } else {
-        alert('Este item não foi encontrado ou já foi adicionado');
+        console.error('Este item não foi encontrado ou já foi adicionado');
     }
 }
