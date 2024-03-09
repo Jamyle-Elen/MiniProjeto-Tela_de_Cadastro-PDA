@@ -102,3 +102,9 @@ button {
 #button-lol-sign-in:hover {
     background-color: #b62b2e;
 }
+
+.imagens .itemImage {
+    max-width: 100%;
+    margin-top: 20px;
+    display: none;
+}
