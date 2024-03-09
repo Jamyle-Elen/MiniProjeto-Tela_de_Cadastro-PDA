@@ -30,10 +30,10 @@ function mostrarImagem() {
             itemImage.alt = `Imagem do item ${availableSlot + 1}`;
             itemImage.style.display = 'block';
 
-            displayItems.add(itemNameInput);
+            // // displayItems.add(itemNameInput);
             
-            itemImage.addEventListener('mouseover', () => mostrarNomeItem(imgId, item.name));
-            itemImage.addEventListener('mouseout', () => esconderNomeItem(imgId));
+            // itemImage.addEventListener('mouseover', () => mostrarNomeItem(imgId, item.name));
+            // itemImage.addEventListener('mouseout', () => esconderNomeItem(imgId));
         } else {
             console.error('Não há slots disponíveis para exibir a imagem.');
         }
@@ -42,19 +42,19 @@ function mostrarImagem() {
     }
 }
 
-function mostrarNomeItem(imageId, itemName) {
-    const abbrElement = document.createElement('abbr');
-    abbrElement.textContent = itemName;
-    abbrElement.title = itemName;
-    document.getElementById(imageId).parentNode.appendChild(abbrElement);
-}
+// function mostrarNomeItem(imageId, itemName) {
+//     const abbrElement = document.createElement('abbr');
+//     abbrElement.textContent = itemName;
+//     abbrElement.title = itemName;
+//     document.getElementById(imageId).parentNode.appendChild(abbrElement);
+// }
 
-function esconderNomeItem(imageId) {
-    const abbrElement = document.getElementById(imageId).parentNode.querySelector('abbr');
-    if (abbrElement) {
-        setTimeout(() => {
-            abbrElement.remove();
-        },1);
+// function esconderNomeItem(imageId) {
+//     const abbrElement = document.getElementById(imageId).parentNode.querySelector('abbr');
+//     if (abbrElement) {
+//         setTimeout(() => {
+//             abbrElement.remove();
+//         },1);
         
-    }
-}
+//     }
+// }
