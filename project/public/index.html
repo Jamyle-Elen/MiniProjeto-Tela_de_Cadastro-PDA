@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +9,44 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Arsenal</title>
 </head>
+
 <body>
     <div class="container">
         <div class="text-center">
             <h1 class="text-build">Arsenal</h1>
-            
+
             <div class="item-input">
                 <input class="FF" id="item" type="text" placeholder=" " required>
                 <label for="item">Digite um item</label>
                 <button onclick="mostrarImagem()" id="button-lol-sign-in"><i class='bx bx-right-arrow-alt'></i></button>
             </div>
-                        
+
         </div>
     </div>
     <div class="imagens">
-        <abbr title="Item"><img id="itemImage1" class="itemImage" alt="Imagem do item 1" onmouseover="mostrarNomeItem('itemImage1')" onmouseout="esconderNomeItem()"></abbr>
-        <abbr title="Item"></abbr><img id="itemImage2" class="itemImage" alt="Imagem do item 2" onmouseover="mostrarNomeItem('itemImage2')" onmouseout="esconderNomeItem()"></abbr>
-        <abbr title="Item"></abbr><img id="itemImage3" class="itemImage" alt="Imagem do item 3" onmouseover="mostrarNomeItem('itemImage3')" onmouseout="esconderNomeItem()"></abbr>
-        <abbr title="Item"></abbr><img id="itemImage4" class="itemImage" alt="Imagem do item 4" onmouseover="mostrarNomeItem('itemImage4')" onmouseout="esconderNomeItem()"></abbr>
-        <abbr title="Item"></abbr><img id="itemImage5" class="itemImage" alt="Imagem do item 5" onmouseover="mostrarNomeItem('itemImage5')" onmouseout="esconderNomeItem()"></abbr>
-        <abbr title="Item"></abbr><img id="itemImage6" class="itemImage" alt="Imagem do item 6" onmouseover="mostrarNomeItem('itemImage6')" onmouseout="esconderNomeItem()"></abbr>
+            <div class="image-container">
+                <abbr title="Item"><img id="itemImage1" class="itemImage" alt="Imagem do item 1"></abbr>
+            </div>
+        <div class="image-container">
+            <abbr title="Item"><img id="itemImage2" class="itemImage" alt="Imagem do item 2"></abbr>
+        </div>
+        <div class="image-container">
+            <abbr title="Item"><img id="itemImage3" class="itemImage" alt="Imagem do item 3"></abbr>
+        </div>
+        <div class="image-container">
+            <abbr title="Item"><img id="itemImage4" class="itemImage" alt="Imagem do item 4"></abbr>
+        </div>
+        <div class="image-container">
+            <abbr title="Item"><img id="itemImage5" class="itemImage" alt="Imagem do item 5"></abbr>
+        </div>
+        <div class="image-container">
+            <abbr title="Item"><img id="itemImage6" class="itemImage" alt="Imagem do item 6"></abbr>
+        </div>
+    </div>
+
+    <div class="buy">
+        <button onclick="venderItens()" class="buy-itens" id="vender">Vender</button>
+        <button onclick="comprarItens()" class="sell-itens" id="">Comprar</button>
     </div>
 
     <!-- coin lol -->
@@ -39,5 +58,14 @@
     <!-- bg:focus #b62b2e -->
     <script src="scripts/main.js" defer></script>
     <!-- <script src="../public/scripts/items/items.js" defer></script> -->
+
+    <div class="build-name">
+        <label for="buildName">Nome da Build:</label>
+            <input type="text" id="buildName" placeholder="Digite o nome da build">
+            <div class="build-actions">
+                <button onclick="editarBuild()">Editar Build</button>
+            </div>
+        </div>
 </body>
+
 </html>

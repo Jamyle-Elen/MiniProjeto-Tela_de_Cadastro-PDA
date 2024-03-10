@@ -12,6 +12,7 @@ body {
     font-family: "Roboto", sans-serif;
     background-color: #fff;
     color: #d4d4d4;
+    /* background-image: url(../images/bg-lol.jpeg); */
 }
 
 .container {
@@ -20,7 +21,7 @@ body {
     padding: 20px 40px 20px 40px;
     background-color: #fff;
     border-radius: 8px;
-    border: red solid 1px;
+    border: rgb(206, 201, 201) solid 1px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -74,15 +75,6 @@ input.FF {
     border-color: #1f2333;
 }
 
-button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
 #button-lol-sign-in {
     background-color: #d43234;
     width: 3.8rem;
@@ -90,6 +82,7 @@ button {
     border-radius: 10px;
     font-size: 30px;
     margin-top: 20px;
+    cursor: pointer;
 }
 #button-lol-sign-in i {
     color: #fff;
@@ -116,10 +109,63 @@ button {
     cursor: pointer;
     transition: transform .3s ease-in-out;
     border-radius: 4px;
+    border: rgb(168, 141, 82) solid;
 }
 
 .imagens .itemImage:hover {
     transform: scale(1.1);
 }
 
+.buy {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px 40px 20px 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
 
+.edit-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+}
+
+.delete-button {
+    display: none;
+}
+
+.buy-itens, .sell-itens {
+    border: #b4965a solid 3px;
+    background-color: #20242a;
+    color: #9f906e;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    font-family: 'Roboto', serif;
+    font-size: 15px;
+    font-weight: 900;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+    line-height: 0;
+    box-shadow: #25282c 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    /* comprar #523e1f */
+}
+
+.sell-itens {
+    background-color: #513821;
+    box-shadow: #513821 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    color: #c2baa8;
+
+}
+
+.selling-mode .delete-icon {
+    display: none;
+}
