@@ -92,6 +92,8 @@ function venderItens() {
         imageContainer.parentNode.appendChild(deleteIcon);
     });
 
+    displayItems.clear();
+
     if (displayItems.size === 6 && buildNameInput !== '') {
         const build = {
             name: buildNameInput,
