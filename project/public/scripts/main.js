@@ -21,33 +21,27 @@ const displayItems = new Set();
 function mostrarImagem() {
     const itemNameInput = document.getElementById('item').value.trim().toLowerCase();
     const item = itemImageMap[itemNameInput];
-    const imagesContainer = document.querySelectorAll('.itemImage');
+    const imagesContainer = document.querySelector('.imagens');
 
     console.log('Nome do Item:', itemNameInput);
 
     if (item && !displayItems.has(itemNameInput) && displayItems.size < 6) {
-        const availableSlot = Array.from(imagesContainer).findIndex(img => !img.src);
-        if (availableSlot !== -1) {
-            const imgId = `itemImage${availableSlot + 1}`;
-            const itemImage = document.getElementById(imgId);
+        const availableSlot = displayItems.size + 1;
+        const imgId = `itemImage${availableSlot}`;
+        let itemImage = document.getElementById(imgId);
 
-            // const deleteIcon = document.createElement('i');
-            // deleteIcon.className = 'bx bx-x delete-icon';
-            // deleteIcon.addEventListener('click', () => deletarItem(itemNameInput, imgId));
-            // itemImage.parentNode.appendChild(deleteIcon);
-
-            itemImage.src = item.imagePath;
-            itemImage.alt = `Imagem do item ${availableSlot + 1}`;
-            itemImage.style.display = 'block';
-
-            displayItems.add(itemNameInput);
-            // // displayItems.add(itemNameInput);
-            
-            // itemImage.addEventListener('mouseover', () => mostrarNomeItem(imgId, item.name));
-            // itemImage.addEventListener('mouseout', () => esconderNomeItem(imgId));
-        } else {
-            console.error('Não há slots disponíveis para exibir a imagem.');
+        if (!itemImage) {
+            itemImage = document.createElement('img');
+            itemImage.id = imgId;
+            itemImage.className = 'itemImage';
+            itemImage.alt = `Imagem do item ${availableSlot}`;
+            imagesContainer.appendChild(itemImage);
         }
+
+        itemImage.src = item.imagePath;
+        itemImage.style.display = 'block';
+
+        displayItems.add(itemNameInput);
     } else {
         console.error('Este item não foi encontrado ou já foi adicionado');
     }
@@ -82,6 +76,8 @@ function venderItens() {
             deleteIcon.remove();
         }
     });
+
+    imagensContainer.innerHTML = '';
 
     const imageContainers = imagensContainer.querySelectorAll('.itemImage');
     imageContainers.forEach((imageContainer, index) => {
