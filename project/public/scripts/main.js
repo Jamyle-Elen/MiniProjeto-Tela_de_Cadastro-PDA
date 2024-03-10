@@ -131,14 +131,13 @@ function comprarItens() {
     });
 
     const miniaturasContainer = document.getElementById('miniaturasContainer');
-    
+    const buildsSalvasContainer = document.getElementById('buildsSalvas');
 
-    // Verificar se o campo de nome da build está preenchido
     if (buildNameInput !== '') {
-        // Limpando o container de miniaturas
-        miniaturasContainer.innerHTML = '';
+        // vai criar uma nova div pra cada nova build
+        const buildDiv = document.createElement('div');
+        buildDiv.className = 'build-salva';
 
-        // Adicionando miniaturas à build
         displayItems.forEach(itemName => {
             const miniaturaImg = document.createElement('img');
             const item = itemImageMap[itemName];
@@ -147,16 +146,21 @@ function comprarItens() {
             miniaturasContainer.appendChild(miniaturaImg);
         });
 
-        // Criar um objeto representando a build
+        buildsSalvasContainer.appendChild(buildDiv);
+
         const build = {
             name: buildNameInput,
             items: Array.from(displayItems)
         };
 
-        // Exibir informações da build no console (pode ser ajustado conforme necessário)
         console.log('Build Salva:', build);
 
-        // Limpar os itens exibidos
+        // onde as miniaturas vao ficar (criar divs)
+        const buildNameElement = document.createElement('div');
+        buildNameElement.textContent = `Build: ${buildNameInput}`;
+        buildsSalvasContainer.appendChild(buildNameElement);
+        
+        // limpar
         displayItems.clear();
         document.querySelector('.imagens').classList.remove('selling-mode');
     } else {

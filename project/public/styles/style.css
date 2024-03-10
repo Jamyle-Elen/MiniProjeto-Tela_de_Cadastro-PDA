@@ -169,3 +169,34 @@ input.FF {
 .selling-mode .delete-icon {
     display: none;
 }
+
+/* teste */
+.builds-container {
+    border: green solid 1px;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px 40px 20px 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: rgb(206, 201, 201) solid 1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.builds-salvas-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.build-salva {
+    margin-bottom: 20px;
+}
+
+#miniaturasContainer {
+    border: yellow solid;
+    display: flex;
+    gap: 5px;
+}
+
+#miniaturasContainer img {
+    border: purple solid 2px;
+    width: 30px;
+}
