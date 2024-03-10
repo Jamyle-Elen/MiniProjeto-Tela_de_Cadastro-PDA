@@ -92,12 +92,6 @@ function venderItens() {
         imageContainer.parentNode.appendChild(deleteIcon);
     });
 
-    displayItems.clear();
-
-    if (displayItems.size < 6) {
-        console.error('Não há slots disponíveis para exibir a imagem.');
-    }
-
     if (displayItems.size === 6 && buildNameInput !== '') {
         const build = {
             name: buildNameInput,
