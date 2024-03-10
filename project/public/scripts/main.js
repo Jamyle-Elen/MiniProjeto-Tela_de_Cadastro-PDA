@@ -63,6 +63,8 @@ function mostrarImagem() {
 //     }
 // }
 
+
+// Vender itens
 function venderItens() {
     const imagensContainer = document.querySelector('.imagens');
     const buildNameInput = document.getElementById('buildName').value.trim();
@@ -112,3 +114,53 @@ function venderItens() {
         console.error('Selecione seis itens e insira um nome para salvar a build.');
     }
 }
+
+// Comprar itens
+function comprarItens() {
+    const imagensContainer = document.querySelector('.imagens');
+    const buildNameInput = document.getElementById('buildName').value.trim();
+
+    imagensContainer.querySelectorAll('.itemImage').forEach((itemImage, index) => {
+        itemImage.src = '';
+        itemImage.style.display = 'none';
+
+        const deleteIcon = imagensContainer.querySelector(`#deleteIcon${index + 1}`);
+        if (deleteIcon) {
+            deleteIcon.remove();
+        }
+    });
+
+    const miniaturasContainer = document.getElementById('miniaturasContainer');
+    
+
+    // Verificar se o campo de nome da build está preenchido
+    if (buildNameInput !== '') {
+        // Limpando o container de miniaturas
+        miniaturasContainer.innerHTML = '';
+
+        // Adicionando miniaturas à build
+        displayItems.forEach(itemName => {
+            const miniaturaImg = document.createElement('img');
+            const item = itemImageMap[itemName];
+            miniaturaImg.src = item.imagePath;
+            miniaturaImg.alt = `Miniatura do ${itemName} na build ${buildNameInput}`;
+            miniaturasContainer.appendChild(miniaturaImg);
+        });
+
+        // Criar um objeto representando a build
+        const build = {
+            name: buildNameInput,
+            items: Array.from(displayItems)
+        };
+
+        // Exibir informações da build no console (pode ser ajustado conforme necessário)
+        console.log('Build Salva:', build);
+
+        // Limpar os itens exibidos
+        displayItems.clear();
+        document.querySelector('.imagens').classList.remove('selling-mode');
+    } else {
+        console.error('Insira um nome para salvar a build.');
+    }
+}
+
