@@ -7,19 +7,36 @@ class Item {
 }
 
 const itemImageMap = {
-  proto: new Item("proto", "images/itens-lol/protocinturao-item.png"),
-  eco: new Item("eco", "images/itens-lol/eco-item.webp"),
-  eco2: new Item("eco", "images/itens-lol/eco-item.webp"),
-  eco3: new Item("eco", "images/itens-lol/eco-item.webp"),
-  eco4: new Item("eco", "images/itens-lol/eco-item.webp"),
-  eco5: new Item("eco", "images/itens-lol/eco-item.webp"),
-  eco6: new Item("eco", "images/itens-lol/eco-item.webp"),
-};
+    colhedor: new Item("Colhedor Noturno", "images/itens-lol/colhedor-noturno-item.webp"),
+    // crepusculo: new Item("Crepúsculo Draktharr", "images/itens-lol/crepusculo-item.webp"),
+    // criafendas: new Item("Criafendas", "images/itens-lol/criafendas-item.webp"),
+    eclipse: new Item("Eclipse", "images/itens-lol/eclipse-item.webp"),
+    eco: new Item("Eco Luden", "images/itens-lol/eco-item.webp"),
+    garra: new Item("Garra Espreitador", "images/itens-lol/garra-item.webp"),
+    glacieterno: new Item("Glacieterno", "images/itens-lol/glassieterno-item.webp"),
+    hemodrenario: new Item("Hemodrenario", "images/itens-lol/hemo-item.webp"),
+    jaksho: new Item("Jak'Sho Inconstante", "images/itens-lol/eco-item.webp"),
+    mandatoimperial: new Item("Mandato Imperial", "images/itens-lol/mandato-imperial-item.webp"),
+    medalhao: new Item("Medalhão Solari Ferro", "images/itens-lol/medalhao-solari-item.webp"),
+    regeneradorpedralunar: new Item("Regenerador Pedra Lunar", "images/itens-lol/pedra-lunar-item.webp"),
+    protocinturaohextec: new Item("Protocinturão Hextec", "images/itens-lol/protocinturao-item.png"),
+    quebrapassos: new Item("Quebrapassos", "images/itens-lol/quebrapassos-item.png"),
+    ruptordivino: new Item("Ruptor Divino", "images/itens-lol/ruptor-item.webp"),
+    hinobelico: new Item("Hino Bélico Shurelya", "images/itens-lol/shurelya-item.webp"),
+    forcatrindade: new Item("Força Trindade", "images/itens-lol/trindade-item.webp")
+  };
+  
 
 let buildNameInput;
 
 const displayItems = new Set();
 const builds = [];
+
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+        document.body.classList.add("fade-in");
+    }, 30);
+});
 
 function mostrarImagem() {
   const itemNameInput = document
