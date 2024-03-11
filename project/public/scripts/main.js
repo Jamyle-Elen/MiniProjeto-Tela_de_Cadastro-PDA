@@ -17,11 +17,6 @@ const itemImageMap = {
   criafendas: new Item("Criafendas", "images/itens-lol/criafendas-item.webp"),
   eclipse: new Item("Eclipse", "images/itens-lol/eclipse-item.webp"),
   eco: new Item("Eco Luden", "images/itens-lol/eco-item.webp"),
-  eco2: new Item("Eco Luden", "images/itens-lol/eco-item.webp"),
-  eco3: new Item("Eco Luden", "images/itens-lol/eco-item.webp"),
-  eco4: new Item("Eco Luden", "images/itens-lol/eco-item.webp"),
-  eco5: new Item("Eco Luden", "images/itens-lol/eco-item.webp"),
-  eco6: new Item("Eco Luden", "images/itens-lol/eco-item.webp"),
   garra: new Item("Garra Espreitador", "images/itens-lol/garra-item.webp"),
   glacieterno: new Item(
     "Glacieterno",
