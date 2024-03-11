@@ -55,6 +55,7 @@ const itemImageMap = {
 };
 
 alert('Olá, eu sou a Cavaleira Sombria Elisa, vendo itens! Quais itens você deseja comprar?');
+alert('IMPORTANTE: Confira o README do projeto para saber quais itens temos no estoque e como deve ser escrito sua solicitação à nosso armazém!');
 
 let buildDiv;
 let buildNameInput;
