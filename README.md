@@ -11,6 +11,51 @@ Bem-vindo ao Arsenal, um site para criação e visualização de builds de itens
 5. [Editar e Excluir Builds Salvas](#5-editar-e-excluir-builds-salvas)
 6. [Comprar Itens](#6-comprar-itens)
 
+# Itens Disponíveis
+
+1. **Criafendas**
+   - Chamado: criafendas
+
+2. **Eclipse**
+   - Chamado: eclipse
+
+3. **Eco de Luden**
+   - Chamado: eco
+
+4. **Garra Espreitador**
+   - Chamado: garra
+
+5. **Glacieterno**
+   - Chamado: glacieterno
+
+6. **Hemodrenario**
+   - Chamado: hemodrenario
+
+7. **Mandato Imperial**
+   - Chamado: mandatoimperial
+
+8. **Medalhão Solari Ferro**
+   - Chamado: medalhao
+
+9. **Regenerador Pedra Lunar**
+   - Chamado: regeneradorpedralunar
+
+10. **Protocinturão Hextec**
+    - Chamado: protocinturaohextec
+
+11. **Quebrapassos**
+    - Chamado: quebrapassos
+
+12. **Ruptor Divino**
+    - Chamado: ruptordivino
+
+13. **Hino Bélico Shurelya**
+    - Chamado: hinobelico
+
+14. **Força Trindade**
+    - Chamado: forcatrindade
+
+
 ---
 
 ## 1. Início Rápido
