@@ -1,3 +1,4 @@
+
 class Item {
   constructor(name, imagePath) {
     this.name = name;
@@ -14,6 +15,8 @@ const itemImageMap = {
   eco5: new Item("eco", "images/itens-lol/eco-item.webp"),
   eco6: new Item("eco", "images/itens-lol/eco-item.webp"),
 };
+
+let buildNameInput;
 
 const displayItems = new Set();
 
@@ -65,11 +68,17 @@ function mostrarImagem() {
 //     }
 // }
 
-
-// Vender itens
+// Vender itens - FUNCIONANDO
 function venderItens() {
   const imagensContainer = document.querySelector(".imagens");
+  const buildNameInput = document.getElementById("item").value.trim();
 
+  const buildNameElement = document.getElementById("buildName");
+// so pra ver se o elemento com id existe ja
+  if (!buildNameElement) {
+    console.error("Elemento com ID 'buildName' não encontrado.");
+    return;
+}
 
   imagensContainer
     .querySelectorAll(".itemImage")
@@ -100,13 +109,13 @@ function venderItens() {
 
   displayItems.clear();
 
-  const build = {
-    name: buildNameInput,
-    items: Array.from(displayItems)
-};
-
   if (displayItems.size === 6 && buildNameInput !== "") {
-    console.log("Build Salva:", build);
+    const build = {
+      name: buildNameInput,
+      items: Array.from(displayItems),
+    };
+
+    console.log("Itens Vendidos:", build);
     miniaturasContainer.innerHTML = "";
     displayItems.forEach((itemName) => {
       const miniaturaImg = document.createElement("img");
@@ -125,79 +134,65 @@ function venderItens() {
 
 // Comprar itens - FUNCIONANDO
 function comprarItens() {
-  const imagensContainer = document.querySelector(".imagens");
-  const miniaturasContainer = document.getElementById("miniaturasContainer");
-  const buildNameInput = prompt("Nome da build.:");
-
-
-  // verifica se foram seis itens
-  if (displayItems.size === 6) {
-    if (buildNameInput !== null && buildNameInput.trim() !== "") {
-      const buildDiv = document.createElement("div");
-      buildDiv.className = "build-salva";
-      miniaturasContainer.appendChild(buildDiv);
-
-      displayItems.forEach((itemName) => {
-        const miniaturaImg = document.createElement("img");
-        miniaturaImg.className = "miniatura-imagem";
-        const item = itemImageMap[itemName];
-        miniaturaImg.src = item.imagePath;
-        miniaturaImg.alt = `Miniatura do ${itemName} na build ${buildNameInput}`;
-        miniaturasContainer.appendChild(miniaturaImg);
-      });
-
-      imagensContainer.innerHTML = "";
-
-      const buildNameElement = document.createElement("div");
-      buildNameElement.className = "build-name";
-      buildNameElement.textContent = `Build: ${buildNameInput}`;
-      buildDiv.appendChild(buildNameElement);
-
-      // deletar build
-      const deleteButton = document.createElement("button");
-      deleteButton.textContent = "Excluir";
-      deleteButton.addEventListener("click", () => deletarBuild(buildDiv));
-      buildDiv.appendChild(deleteButton);
-
-      // editar nome da build
-      const editButton = document.createElement("button");
-      editButton.textContent = "Editar";
-      editButton.addEventListener("click", () => editarBuild(buildNameElement));
-      buildDiv.appendChild(editButton);
-
-      document.querySelector(".imagens").classList.remove("selling-mode");
-      displayItems.clear();
+    const imagensContainer = document.querySelector(".imagens");
+    const miniaturasContainer = document.getElementById("miniaturasContainer");
+    const buildNameInput = document.getElementById("item").value.trim();
+  
+    // verifica se foram seis itens
+    if (displayItems.size === 6) {
+    const buildNameInput = prompt("Nome da build.:");
+      if (buildNameInput !== null && buildNameInput.trim() !== "") {
+        const buildDiv = document.createElement("div");
+        buildDiv.className = "build-salva";
+        miniaturasContainer.appendChild(buildDiv);
+  
+        displayItems.forEach((itemName) => {
+          const miniaturaImg = document.createElement("img");
+          miniaturaImg.className = "miniatura-imagem";
+          const item = itemImageMap[itemName];
+          miniaturaImg.src = item.imagePath;
+          miniaturaImg.alt = (`Miniatura do ${itemName} na build ${buildNameInput}`);
+          miniaturasContainer.appendChild(miniaturaImg);
+        });
+  
+        imagensContainer.innerHTML = "";
+  
+        const buildNameElement = document.createElement("div");
+        buildNameElement.className = "build-name";
+        buildNameElement.textContent = (`Build: ${buildNameInput}`);
+        buildDiv.appendChild(buildNameElement);
+  
+        // deletar build
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Excluir";
+        deleteButton.addEventListener("click", () => deletarBuild(buildDiv));
+        buildDiv.appendChild(deleteButton);
+  
+        // editar nome da build
+        const editButton = document.createElement("button");
+        editButton.textContent = "Editar";
+        editButton.addEventListener("click", () => editarBuild(buildNameElement));
+        buildDiv.appendChild(editButton);
+  
+        document.querySelector(".imagens").classList.remove("selling-mode");
+        displayItems.clear();
+      } else {
+        console.error("Nome da build inválido.");
+      }
     } else {
-      console.error("Nome da build inválido.");
+      console.error("Selecione seis itens antes de comprar a build.");
     }
-  } else {
-    console.error("Selecione seis itens antes de comprar a build.");
   }
-}
 
-// function salvarEdicaoBuild() {
-//     const novoNome = document.getElementById('novoNomeBuild').value.trim();
+  // // onde as miniaturas vao ficar (criar divs)
+  // const buildNameElement = document.createElement('div');
+  // buildNameElement.textContent = `Build: ${buildNameInput}`;
+  // buildsSalvasContainer.appendChild(buildNameElement);
 
-//     if (novoNome !== '') {
-//         // faz a att p original
-//         const buildNameElement = document.querySelector('.build-name');
-//         buildNameElement.textContent = `Build: ${novoNome}`;
+  // limpar
+  
 
-//         fecharModalEditar();
-//     }
 
-const build = {
-  name: buildNameInput,
-  items: Array.from(displayItems),
-};
 
-console.log("Build Salva:", build);
-
-// // onde as miniaturas vao ficar (criar divs)
-// const buildNameElement = document.createElement('div');
-// buildNameElement.textContent = `Build: ${buildNameInput}`;
-// buildsSalvasContainer.appendChild(buildNameElement);
-
-// limpar
 
 // imagens ainda tao ficando na mesma linha - arrumar isso depos
