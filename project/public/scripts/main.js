@@ -19,6 +19,7 @@ const itemImageMap = {
 let buildNameInput;
 
 const displayItems = new Set();
+const builds = [];
 
 function mostrarImagem() {
   const itemNameInput = document
@@ -72,6 +73,7 @@ function mostrarImagem() {
 function venderItens() {
   const imagensContainer = document.querySelector(".imagens");
   const buildNameInput = document.getElementById("item").value.trim();
+  const miniaturasContainer = document.getElementById("miniaturasContainer");
 
   const buildNameElement = document.getElementById("buildName");
 // so pra ver se o elemento com id existe ja
@@ -126,13 +128,30 @@ function venderItens() {
     miniaturasContainer.innerHTML = "";
     displayItems.forEach((itemName) => {
       const miniaturaImg = document.createElement("img");
+      miniaturaImg.className = "miniatura-imagem";
       const item = itemImageMap[itemName];
       miniaturaImg.src = item.imagePath;
       miniaturaImg.alt = `Miniatura do ${itemName} na build ${buildNameInput}`;
       miniaturasContainer.appendChild(miniaturaImg);
     });
 
-    displayItems.clear();
+    const buildNameElement = document.createElement("div");
+    buildNameElement.className = "build-name";
+    buildNameElement.textContent = `Build: ${buildNameInput}`;
+    buildDiv.appendChild(buildNameElement);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Excluir";
+    deleteButton.addEventListener("click", () => deletarBuild(buildDiv));
+    buildDiv.appendChild(deleteButton);
+
+    const editButton = document.createElement("button");
+    editButton.textContent = "Editar";
+    editButton.addEventListener("click", () => editarBuild(buildNameElement));
+    buildDiv.appendChild(editButton);
+
+
+    // displayItems.clear();
     document.querySelector(".imagens").classList.remove("selling-mode");
   } else {
     console.error("Selecione seis itens e insira um nome para salvar a build.");
@@ -141,10 +160,21 @@ function venderItens() {
 
 // deletar build
 function deletarBuild(buildDiv) {
-    if (miniaturasContainer) {
-      miniaturasContainer.removeChild(buildDiv);
-    } else {
-      console.error("Elemento com ID 'miniaturasContainer' não encontrado.");
+    const miniaturasContainer = document.getElementById("miniaturasContainer");
+    miniaturasContainer.removeChild(buildDiv);
+
+    // if (miniaturasContainer) {
+    //   miniaturasContainer.removeChild(buildDiv);
+    // } else {
+    //   console.error("Elemento com ID 'miniaturasContainer' não encontrado.");
+    // }
+  }
+
+  function editarBuild(buildNameElement) {
+    const novoNome = prompt("Digite o novo nome da build:");
+  
+    if (novoNome !== null && novoNome.trim() !== "") {
+      buildNameElement.textContent = `Build: ${novoNome}`;
     }
   }
 
@@ -160,6 +190,7 @@ function comprarItens() {
       if (buildNameInput !== null && buildNameInput.trim() !== "") {
         const buildDiv = document.createElement("div");
         buildDiv.className = "build-salva";
+        builds.push(buildDiv);
         miniaturasContainer.appendChild(buildDiv);
   
         displayItems.forEach((itemName) => {
@@ -168,7 +199,7 @@ function comprarItens() {
           const item = itemImageMap[itemName];
           miniaturaImg.src = item.imagePath;
           miniaturaImg.alt = (`Miniatura do ${itemName} na build ${buildNameInput}`);
-          miniaturasContainer.appendChild(miniaturaImg);
+          buildDiv.appendChild(miniaturaImg);
         });
   
         imagensContainer.innerHTML = "";
@@ -179,10 +210,20 @@ function comprarItens() {
         buildDiv.appendChild(buildNameElement);
   
         // deletar build
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Excluir";
-        deleteButton.addEventListener("click", () => deletarBuild(buildDiv));
-        buildDiv.appendChild(deleteButton);
+        // const deleteButton = document.createElement("button");
+        // deleteButton.textContent = "Excluir";
+        // deleteButton.addEventListener("click", () => deletarBuild(buildDiv));
+        // buildDiv.appendChild(deleteButton);
+        function deletarBuild(buildDiv) {
+            const miniaturasContainer = document.getElementById("miniaturasContainer");
+            const index = builds.indexOf(buildDiv);
+            if (index !== -1) {
+              builds.splice(index, 1); // Remove a build do array
+              miniaturasContainer.removeChild(buildDiv);
+            }
+          }
+          
+
   
         // editar nome da build
         const editButton = document.createElement("button");

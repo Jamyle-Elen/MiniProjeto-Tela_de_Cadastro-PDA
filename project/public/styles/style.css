@@ -190,6 +190,7 @@ input.FF {
     border: yellow solid;
     display: flex;
     gap: 5px;
+    margin: 10px;
 }
 
 #miniaturasContainer img {
@@ -198,22 +199,40 @@ input.FF {
 }
 
 .build-salva {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.miniatura-imagem {
-    display: block;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .build-name {
+    font-size: 18px;
+    font-weight: bold;
     margin-bottom: 10px;
-}
-
-.build-name {
-    text-align: center;
-}
-
-.build-salva button {
-    margin-top: 5px;
+  }
+  
+  .miniatura-imagem {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+  }
+  
+  .build-salva img {
+    margin-bottom: 5px;
+  }
+  
+  .build-salva button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-}
+  }
+  
+  .build-salva button:hover {
+    background-color: #0056b3;
+  }
