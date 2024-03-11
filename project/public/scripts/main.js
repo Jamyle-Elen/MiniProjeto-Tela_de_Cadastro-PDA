@@ -227,7 +227,7 @@ function comprarItens() {
   
         // editar nome da build
         const editButton = document.createElement("button");
-        editButton.textContent = "Editar";
+        editButton.innerHTML = "<i class='bx bx-edit'></i>";
         editButton.addEventListener("click", () => editarBuild(buildNameElement));
         buildDiv.appendChild(editButton);
   
