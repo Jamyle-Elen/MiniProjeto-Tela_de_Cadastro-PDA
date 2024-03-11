@@ -113,9 +113,16 @@ function venderItens() {
     const build = {
       name: buildNameInput,
       items: Array.from(displayItems),
+      
     };
 
     console.log("Itens Vendidos:", build);
+
+    miniaturasContainer = document.getElementById("miniaturasContainer");
+    if (!miniaturasContainer) {
+      console.error("Elemento com ID 'miniaturasContainer' não encontrado.");
+      return;
+    }
     miniaturasContainer.innerHTML = "";
     displayItems.forEach((itemName) => {
       const miniaturaImg = document.createElement("img");
@@ -131,6 +138,15 @@ function venderItens() {
     console.error("Selecione seis itens e insira um nome para salvar a build.");
   }
 }
+
+// deletar build
+function deletarBuild(buildDiv) {
+    if (miniaturasContainer) {
+      miniaturasContainer.removeChild(buildDiv);
+    } else {
+      console.error("Elemento com ID 'miniaturasContainer' não encontrado.");
+    }
+  }
 
 // Comprar itens - FUNCIONANDO
 function comprarItens() {
