@@ -186,10 +186,6 @@ input.FF {
     flex-direction: column;
 }
 
-.build-salva {
-    margin-bottom: 20px;
-}
-
 #miniaturasContainer {
     border: yellow solid;
     display: flex;
@@ -199,4 +195,25 @@ input.FF {
 #miniaturasContainer img {
     border: purple solid 2px;
     width: 30px;
+}
+
+.build-salva {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.miniatura-imagem {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.build-name {
+    text-align: center;
+}
+
+.build-salva button {
+    margin-top: 5px;
+    cursor: pointer;
 }
