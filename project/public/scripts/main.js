@@ -184,6 +184,15 @@ function comprarItens() {
     }
   }
 
+//   fynçao p editar noem da build - FUNCIONANDO
+  function editarBuild(buildNameElement) {
+    const novoNome = prompt("Digite o novo nome da build:");
+  
+    if (novoNome !== null && novoNome.trim() !== "") {
+      buildNameElement.textContent = `Build: ${novoNome}`;
+    }
+  }
+
   // // onde as miniaturas vao ficar (criar divs)
   // const buildNameElement = document.createElement('div');
   // buildNameElement.textContent = `Build: ${buildNameInput}`;
