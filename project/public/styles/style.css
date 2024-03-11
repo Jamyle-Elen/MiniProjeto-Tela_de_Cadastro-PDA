@@ -8,11 +8,35 @@
     color: black;
 }
 
+:root {
+    --background-overlay: #00000063;
+    --overlay: #00000080;
+    --secondary-text-color: #444549;
+    --input-bg-color: #efefef;
+    --input-hover-bg-color: #e4e4e4;
+    --button-bg-color: #d43234;
+    --button-hover-bg-color: #b62b2e;
+    --item-border-color: #e0bd47;
+    --miniatura-bg-color: #20242a;
+    --miniatura-hover-bg-color: #7f8285;
+    --build-border-color: #cec9c9;
+    --build-shadow-color: #00000019;
+    --buy-sell-border: #b4965a;
+    --buy-sell-bg-color: #513821;
+    --buy-sell-text-color: #9f906e;
+    --buy-sell-hover-color: #e9dcbc;
+    --text-color: #ffffff;
+}
+
+
 body {
     font-family: "Roboto", sans-serif;
     background-image: url(../images/bg-lol.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
     overflow-x: hidden;
-    color: #d4d4d4;
+    color: var(--main-text-color);
     min-height: 100vh;
 }
 
@@ -22,7 +46,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.39);
+    background: var(--background-overlay);
     z-index: -1;
     transition: opacity .3s ease-in-out;
 }
@@ -37,7 +61,7 @@ body.fade-in .background-overlay {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--overlay);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -47,9 +71,7 @@ body.fade-in .background-overlay {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px 40px 20px 40px;
-    /* background-color: #0f1e23; */
     border-radius: 8px;
-    /* border: #79653b solid 1px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -58,7 +80,7 @@ body.fade-in .background-overlay {
 }
 
 .text-center h1 {
-    color: #fff;
+    color: var(--text-color);
 }
 
 .item-input {
@@ -77,12 +99,13 @@ label {
     padding-left: 8px;
     text-align: left;
     font-weight: 900;
-    color: #444549;
+    color: var(--secondary-text-color);
     font-size: 10px;
     text-transform: uppercase;
 }
 
-input:focus + label, input:not(:placeholder-shown) + label {
+input:focus+label,
+input:not(:placeholder-shown)+label {
     top: 10px;
     font-size: 8px;
 }
@@ -94,13 +117,13 @@ input {
     font-weight: 700;
     font-size: 20px;
     border-radius: 4px;
-    background-color: #efefef;
+    background-color: var(--input-bg-color);
     height: 50px;
     letter-spacing: .4px;
 }
 
 input:hover {
-    background-color: #e4e4e4;
+    background-color: var(--input-hover-bg-color);
 }
 
 input.FF {
@@ -108,7 +131,7 @@ input.FF {
 }
 
 #button-lol-sign-in {
-    background-color: #d43234;
+    background-color: var(--button-bg-color);
     width: 3.8rem;
     height: 3.5rem;
     border-radius: 10px;
@@ -116,8 +139,9 @@ input.FF {
     margin-top: 20px;
     cursor: pointer;
 }
+
 #button-lol-sign-in i {
-    color: #fff;
+    color: var(--text-color);
     display: flex;
     text-align: center;
     align-content: center;
@@ -125,7 +149,7 @@ input.FF {
 }
 
 #button-lol-sign-in:hover {
-    background-color: #b62b2e;
+    background-color: var(--button-hover-bg-color);
 }
 
 .imagens {
@@ -135,13 +159,12 @@ input.FF {
 
 .imagens .itemImage {
     max-width: 100%;
-    margin-top: 20px;
+
     display: none;
-    margin: 15px;
     cursor: pointer;
     transition: transform .3s ease-in-out;
     border-radius: 4px;
-    border: rgb(224, 189, 71) solid 1.5px;
+    border: var(--item-border-color) solid 1.5px;
 }
 
 .imagens .itemImage:hover {
@@ -152,7 +175,6 @@ input.FF {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px 40px 20px 40px;
-    /* background-color: #fff; */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -162,8 +184,7 @@ input.FF {
 }
 
 .edit-button {
-    background-color: #3498db;
-    color: #fff;
+    color: var(--text-color);
     padding: 5px 10px;
     margin-right: 5px;
     cursor: pointer;
@@ -175,10 +196,11 @@ input.FF {
     display: none;
 }
 
-.buy-itens, .sell-itens {
-    border: #b4965a solid 3px;
-    background-color: #20242a;
-    color: #9f906e;
+.buy-itens,
+.sell-itens {
+    border: var(--buy-sell-border) solid 3px;
+    background-color: var(--buy-sell-bg-color);
+    color: var(--buy-sell-text-color);
     text-transform: uppercase;
     padding: 10px 15px;
     font-family: 'Roboto', serif;
@@ -189,12 +211,11 @@ input.FF {
     cursor: pointer;
     line-height: 0;
     box-shadow: #25282c 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    /* comprar #523e1f */
 }
 
 .sell-itens {
-    background-color: #513821;
-    box-shadow: #513821 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    background-color: var(--buy-sell-hover-color);
+    box-shadow: var(--buy-sell-bg-color) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     color: #c2baa8;
     width: auto;
 }
@@ -208,17 +229,16 @@ input.FF {
     display: none;
 }
 
-/* teste */
 .builds-container {
-    border: green solid 1px;
     max-width: 800px;
     margin: 50px auto;
     padding: 20px 40px 20px 40px;
-    background-color: #fff;
+    background-color: var(--text-color);
     border-radius: 8px;
     border: rgb(206, 201, 201) solid 1px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .builds-salvas-container {
     display: flex;
     flex-direction: column;
@@ -230,9 +250,7 @@ input.FF {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px 40px 20px 40px;
-    /* background-color: #fff; */
     border-radius: 8px;
-    /* border: rgb(206, 201, 201) solid 1px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
@@ -248,47 +266,78 @@ input.FF {
 }
 
 #miniaturasContainer img {
-    border: #b4965a solid 2px;
+    border: var(--buy-sell-border) solid 2px;
     width: 30px;
     height: 30px;
 }
 
 .build-salva {
-    /* border: 1px solid #ce2121; */
     border-radius: 8px;
     margin: 10px;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform .3s ease-in-out;
-    background-color: #fff;
-  }
-  
-  .build-name {
+    background-color: var(--text-color);
+}
+
+.build-name {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
-  }
-  
-  .miniatura-imagem {
+}
+
+.miniatura-imagem {
     width: 50px;
     height: 50px;
     margin-right: 5px;
-  }
-  
-  .build-salva img {
+}
+
+.build-salva img {
     margin-bottom: 5px;
-  }
-  
-  .build-salva button {
+}
+
+.build-salva button {
     margin-top: 10px;
     padding: 8px 16px;
     background-color: #eaeaeb;
-    color: #fff;
+    color: var(--text-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .build-salva button:hover {
-    background-color: #7f8285;
-  }
+}
+
+.build-salva button:hover {
+    background-color: var(miniatura-hover-bg-color);
+}
+
+@media screen and (max-width: 375px) {
+    .imagens {
+        display: flex;
+        justify-content: center;
+    }
+
+    .imagens .itemImage {
+        width: 70%;
+        max-width: 100%;
+        height: auto;
+        margin: 10px 0;
+    }
+}
+
+button#apagarBuildsSalvas {
+    display: none;
+}
+
+.builds-salvas-container:not(:empty)+.apagar-builds-salvas {
+    display: inline-block;
+}
+
+button {
+    cursor: pointer;
+    padding: 8px 15px;
+    font-size: 14px;
+    color: var(#ffffff);
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
